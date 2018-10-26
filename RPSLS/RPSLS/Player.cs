@@ -11,7 +11,18 @@ namespace RPSLS
         public string name;
         public int score;
         public bool isComputer;
-        Gesture gesture = new Gesture();
-        
+        public Gesture gesture = new Gesture();
+        public string selectedGesture;
+        public int gestureSelected;
+
+        public virtual int PlayerSelection()
+        {
+            string userInput = Console.ReadLine();
+            int convertedUserInput = int.Parse(userInput);
+            gestureSelected = convertedUserInput;
+            return convertedUserInput;
+        }
     }
+
+
 }

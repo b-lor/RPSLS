@@ -8,9 +8,14 @@ namespace RPSLS
 {
     public class Gesture
     {
-        List<string> listOfGestures = new List<string>() { "Rock", "Paper", "Scissors", "Lizard", "Spock" };
+        public List<string> gestures;
+        public Gesture()
+        {
+            gestures = new List<string>() { "Rock", "Paper", "Scissors", "Lizard", "Spock" };
+        }
 
-}
+    }
+
 
 
 }

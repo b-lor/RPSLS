@@ -11,23 +11,13 @@ namespace RPSLS
         public Player player1;
         public Player player2;
 
-        /* Game Rules:
-           Rock crushes Scissors 
-           Scissors cuts Paper
-           Paper covers Rock
-           Rock crushes Lizard
-           Lizard poisons Spock
-           Spock smashes Scissors
-           Scissors decapitates Lizard
-           Lizard eats Paper
-           Paper disproves Spock
-           Spock vaporizes Rock 
-           */
+
            public void NewGame()
         {
             DisplayRules();
             DeterminePlayers(numberOfPlayers());
         }
+
 
         public int numberOfPlayers()
         {
@@ -66,7 +56,6 @@ namespace RPSLS
         {
             Console.Clear();
             System.Threading.Thread.Sleep(2000);
-
             if (numOfPlayers == 1)
             {
                 Console.Clear();
@@ -75,7 +64,8 @@ namespace RPSLS
                 player2 = new Computer();
                 Console.Clear();
                 Console.WriteLine($"Welcome {player1.name}, your opponent is {player2.name} today. Let's Get Ready to RUMBLEEEEEEE!!!!!!!");
-                Console.ReadKey();
+                System.Threading.Thread.Sleep(2000);
+                Console.Clear();
             }
             if (numOfPlayers == 2)
             {
@@ -83,7 +73,7 @@ namespace RPSLS
                 Console.WriteLine("Player 1: Please enter your name:\n");
                 string playerOne = Console.ReadLine();
                 player1 = new Human(playerOne);
-                Console.WriteLine("Player 2: Please enter your name:\n");
+                Console.WriteLine("\n\nPlayer 2: Please enter your name:\n");
                 string playerTwo = Console.ReadLine();
                 if (playerOne == playerTwo)
                 {
@@ -95,9 +85,32 @@ namespace RPSLS
                 {
                     player2 = new Human(playerTwo);
                     Console.WriteLine($"Welcome {player1.name} and {player2.name}, Let's Get Ready to RUMBLEEEEEEE!!!!!!!");
+                    System.Threading.Thread.Sleep(2000);
+                    Console.Clear();
                 }
-
             }
+            StartBattle();
+        }
+
+        public void StartBattle()
+        {
+            DisplayGestures();
+        }
+    
+        public void DisplayGestures()
+        {
+            int counter = 0;
+            Gesture gestureList = new Gesture();
+            foreach (string gesture in gestureList.gestures)
+            {
+                
+                Console.WriteLine(counter + ": " + gesture);
+                counter++;
+            }
+            Console.WriteLine("\n\n");
+            player1.gestureSelected = player1.PlayerSelection();
+            player2.gestureSelected = player2.PlayerSelection();
+
         }
     }
 }
