@@ -12,7 +12,6 @@ namespace RPSLS
         {
             this.name = name;
             isComputer = false;
-            score = 0;
         }
 
         public override int PlayerSelection()
@@ -26,7 +25,7 @@ namespace RPSLS
             }
             int convertedUserInput = int.Parse(userInput);
             selectedGesture = gesture.gestures.ElementAt(convertedUserInput);
-            Console.WriteLine(name + " Has Chosen " + selectedGesture +"\n\n");
+            Console.WriteLine(name + " chooses " + selectedGesture +"\n");
             return convertedUserInput;
         }
     }

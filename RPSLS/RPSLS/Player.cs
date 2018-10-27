@@ -9,7 +9,6 @@ namespace RPSLS
     public abstract class Player
     {
         public string name;
-        public int score;
         public bool isComputer;
         public Gesture gesture = new Gesture();
         public string selectedGesture;
